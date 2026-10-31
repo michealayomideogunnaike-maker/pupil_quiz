@@ -26,7 +26,21 @@
 
     <br><br>
 
-    <button>Start Quiz</button>
+    <button onclick="startQuiz()">Start Quiz</button>
+
+<script>
+    function startQuiz() {
+
+        const name = document.getElementById("pupilName").value.trim();
+
+        if (name === "") {
+            alert("Please enter your name.");
+            return;
+        }
+
+        window.location.href = "quiz.html";
+    }
+</script>
 
 </body>
 
