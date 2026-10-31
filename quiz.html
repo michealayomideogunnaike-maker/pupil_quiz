@@ -12,65 +12,202 @@
 
     <h1>PUPIL QUIZ</h1>
 
-    <p>Question 1 of 1</p>
+    <p>Answer all 5 questions.</p>
 
-    <h2>What is the capital of Nigeria?</h2>
+    <hr>
+
+    <h2>Question 1</h2>
+    <p>What is the capital of Nigeria?</p>
 
     <label>
-        <input type="radio" name="answer" value="Lagos">
+        <input type="radio" name="q1" value="Lagos">
         Lagos
     </label>
 
     <br>
 
     <label>
-        <input type="radio" name="answer" value="Abuja">
+        <input type="radio" name="q1" value="Abuja">
         Abuja
     </label>
 
     <br>
 
     <label>
-        <input type="radio" name="answer" value="Kano">
+        <input type="radio" name="q1" value="Kano">
         Kano
     </label>
 
     <br>
 
     <label>
-        <input type="radio" name="answer" value="Ibadan">
+        <input type="radio" name="q1" value="Ibadan">
         Ibadan
+    </label>
+
+
+    <hr>
+
+    <h2>Question 2</h2>
+    <p>How many days are there in a week?</p>
+
+    <label>
+        <input type="radio" name="q2" value="5">
+        5
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q2" value="6">
+        6
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q2" value="7">
+        7
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q2" value="8">
+        8
+    </label>
+
+
+    <hr>
+
+    <h2>Question 3</h2>
+    <p>Which planet is known as the Red Planet?</p>
+
+    <label>
+        <input type="radio" name="q3" value="Earth">
+        Earth
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q3" value="Mars">
+        Mars
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q3" value="Jupiter">
+        Jupiter
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q3" value="Venus">
+        Venus
+    </label>
+
+
+    <hr>
+
+    <h2>Question 4</h2>
+    <p>What is 10 × 5?</p>
+
+    <label>
+        <input type="radio" name="q4" value="40">
+        40
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q4" value="50">
+        50
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q4" value="60">
+        60
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q4" value="100">
+        100
+    </label>
+
+
+    <hr>
+
+    <h2>Question 5</h2>
+    <p>Which of these is a primary colour?</p>
+
+    <label>
+        <input type="radio" name="q5" value="Green">
+        Green
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q5" value="Purple">
+        Purple
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q5" value="Red">
+        Red
+    </label>
+
+    <br>
+
+    <label>
+        <input type="radio" name="q5" value="Brown">
+        Brown
     </label>
 
     <br><br>
 
-    <button onclick="checkAnswer()">Submit Answer</button>
+    <button onclick="submitQuiz()">Submit Quiz</button>
 
-    <p id="result"></p>
+    <h2 id="score"></h2>
+
 
     <script>
 
-        function checkAnswer() {
+        function submitQuiz() {
 
-            const answer =
-                document.querySelector('input[name="answer"]:checked');
+            let score = 0;
 
-            if (!answer) {
-                alert("Please select an answer.");
-                return;
+            const answers = {
+                q1: "Abuja",
+                q2: "7",
+                q3: "Mars",
+                q4: "50",
+                q5: "Red"
+            };
+
+            for (let question in answers) {
+
+                const selected =
+                    document.querySelector(
+                        'input[name="' + question + '"]:checked'
+                    );
+
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
             }
 
-            if (answer.value === "Abuja") {
-
-                document.getElementById("result").textContent =
-                    "Correct! 🎉";
-
-            } else {
-
-                document.getElementById("result").textContent =
-                    "Wrong answer.";
-
-            }
+            document.getElementById("score").textContent =
+                "Your score is " + score + " / 5";
 
         }
 
@@ -78,4 +215,4 @@
 
 </body>
 
-      </html>
+</html>
