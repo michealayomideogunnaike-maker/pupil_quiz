@@ -11,7 +11,7 @@
 <body>
 
     <h1>PUPIL QUIZ</h1>
-
+<p id="pupilNameDisplay"></p>
     <p>Answer all 5 questions.</p>
 
     <hr>
@@ -181,7 +181,9 @@
 
 
     <script>
-
+const pupilName = localStorage.getItem("pupilName");
+document.getElementById("pupilNameDisplay").textContent =
+    "Pupil: " + pupilName;
         function submitQuiz() {
 
             let score = 0;
