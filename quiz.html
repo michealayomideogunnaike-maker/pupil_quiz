@@ -210,7 +210,14 @@ document.getElementById("pupilNameDisplay").textContent =
 
             document.getElementById("score").textContent =
                 "Your score is " + score + " / 5";
-localStorage.setItem("quizScore", score);
+const results = JSON.parse(localStorage.getItem("quizResults")) || [];
+
+results.push({
+    name: pupilName,
+    score: score
+});
+
+localStorage.setItem("quizResults", JSON.stringify(results));
         }
 
     </script>
